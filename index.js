@@ -8,7 +8,12 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dateVals, dateIdx = -1) => {
+  const convertToSeconds = dateVals.map(dateVal => new Date(dateVal).getTime() / 1000);
+  const results = (dateIdx == -1) ? convertToSeconds : convertToSeconds.splice(dateIdx, 1);
+
+  return results.sort((a, b) => a - b).join("-");
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
